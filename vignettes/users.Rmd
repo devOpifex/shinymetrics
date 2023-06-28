@@ -1,0 +1,62 @@
+---
+title: "User Management"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{User Management}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Every event is associated with a user.
+
+# Set user
+
+When a user visits your application for the first time they are assigned a random user id that is
+stored as `cookie`, this ID always starts in `smu_` and you will be able to see those in your 
+dashboards.
+
+However, you can also set that user yourself, e.g.: if your application requires authentication
+or it runs in an environment that where the user is authenticated.
+
+``` r
+library(shiny)
+library(shinymetrics)
+
+tracker <- Shinymetrics$new()$track_recommended()
+
+ui <- fluidPage(
+  tracker$include(),
+  textInput("username"),
+  actionButton("login", "Log in")
+)
+
+server <- function(input, output, session) {
+  shinymetrics_server()
+
+  observeEvent(input$login, {
+    shinymetrics_set_user(input$username)
+  })
+}
+
+shinyApp(ui, server)
+```
+
+Note that like the default username created by shinymetrics this is also stored as cookie,
+so there is no need to set the user at every session.
+
+If you are using posit connect you should be able to access the authenticated user from the 
+`session` object with `session$user`.
+
+# Unset user
+
+You can always remove that user tracking with `shinymetrics_unset_user`.
+This will remove the current user cookie and set it back to any anonymous user
+(ID starting in `smu_`).
+

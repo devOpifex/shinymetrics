@@ -1,0 +1,57 @@
+---
+title: "Custom Events"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Custom Events}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+[Shinymetrics](https://shinymetrics.com) will track standard events for you.
+However, you may want to track custom events.
+For instance, you may want to track when a user creates an account by firing an 
+event of `type` "account_creation" where the `value` is the username of the 
+account being created.
+
+For instance the application below, upon account creation, collects the 
+username and fires the event.
+
+``` r
+library(shiny)
+library(shinymetrics)
+
+tracker <- Shinymetrics$new()$track_recommended()
+
+ui <- fluidPage(
+  tracker$include(),
+  textInput("username"),
+  actionButton("create", "Create account")
+)
+
+server <- function(input, output, session) {
+  shinymetrics_server()
+
+  observeEvent(input$create, {
+    shinymetrics_custom_event(
+      type = "account_creation",
+      value = input$username
+    )
+  })
+}
+
+shinyApp(ui, server)
+```
+
+Arguments:
+
+- `type`: Type of the event, allows easily grouping various events into the same category.
+- `value`: Value of the event (optional)
+- `id`: ID of the event, useful if it is tied to an HTML element.
+

@@ -1,0 +1,34 @@
+.body {
+  background: #f8fafc;
+  color: #374151;
+}
+
+a {
+  color: #f97316;
+}
+
+.nav-link {
+  color: white;
+}
+
+.btn-primary {
+  border: unset;
+  background-color: #14b8a6!important;
+}
+
+.navbar {
+  background-color: #14b8a6!important;
+}
+
+.navbar-brand, .nav-text {
+  color: white !important;
+}
+
+.navbar-toggler {
+  background-color: white;
+}
+
+.navbar-dark .navbar-nav .nav-item > .nav-link:hover, 
+.navbar-light .navbar-nav .nav-item > .nav-link:hover{
+  background: #fb923c;
+}

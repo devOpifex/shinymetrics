@@ -1,0 +1,81 @@
+---
+title: "Tracking"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tracking}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `Shinymetrics` class allows tracking many number of things.
+
+However, __it is recommended__ to use the `track_recommended()` method.
+This method will track the following:
+
+- `input`s
+- `output`s
+- `error`s
+- `file_download`s
+- `page_view`s
+- `busy_idle`
+
+This means that
+
+```r
+Shinymetrics$new()$track_recommended()
+```
+
+is equivalent to
+
+
+```r
+Shinymetrics$new()$
+  track_input()$
+  track_output()$
+  track_error()$
+  track_file_download()$
+  track_page_view()$
+  track_busy_idle()
+```
+
+Shinymetrics will let you track more than the above but these other events
+bring little value to the tracking of the application and likely will consume 
+your events quota for little return.
+
+## Input and Output
+
+The `track_input` and `track_output` methods will fire events every time an input,
+e.g.: `textInput` is used, and every time an output, e.g.: `plotOutput` is rendered,
+respectively.
+
+## Error
+
+Will track errors, the error message, when and where they occur.
+
+## File Downloads
+
+Will track file downloads from `downloadHandler()`.
+This does not store the downloaded file, it only track is name.
+
+## Page View
+
+Track page views: fires an event at every visit.
+
+## Busy Idle
+
+Tracks when the server is computing something when the computations are done and the 
+server goes back to idle.
+
+E.g.: An application provides a button that triggers the run of a model,
+the application then displays the results of the model in a plot and a table. 
+When the user clicks the button it spins the model server-side: the "busy" event fires.
+After the plot and table are sent from the server to the front-end the server is done and
+the "idle" event fires.
+

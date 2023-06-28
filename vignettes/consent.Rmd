@@ -1,0 +1,112 @@
+---
+title: "Collecting Consent"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Collecting Consent}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo = FALSE}
+library(shinymetrics)
+```
+
+<div class="alert alert-danger" role="alert">
+  These helper prompts set the cookies for tracking but DO NOT track consent,
+  if that is needed you must set it up yourself.
+</div>
+
+You need to request consent to initialise the tracking, see Terms of Conditions and 
+data privacy regulations.
+
+# Collect Consent
+
+There are two ways to collect user consent to initialise tracking:
+
+1. Use one of provided UI functions to prompt the user for consent
+2. Build something custom
+
+## Pre-built Prompts
+
+Pre-built prompts to place in your UI, use depends on
+style preference and Bootstrap version.
+
+- `trackingToastBS5()` - Bootstrap 5 notification
+- `trackingModalBS5()` - Bootstrap 5 modal
+- `trackingModalBS4()` - Bootstrap 4 modal
+- `trackingModalBS3()` - Bootstrap 3 modal
+
+```r
+library(shiny)
+library(shinymetrics)
+
+tracker <- Shinymetrics$new()$track_recommended()
+
+ui <- fluidPage(
+  theme = bslib::bs_theme(version = 5L),
+  tracker$include(),
+  trackingToastBS5(
+    full_width = TRUE,
+    background = "white",
+    position = "bottom"
+  ),
+  div(
+    style = "min-height:100vh;",
+    h1("Prompt V5")
+  )
+)
+ 
+server <- function(input, output, session) {
+  shinymetrics_server()
+}
+
+shinyApp(ui, server)
+```
+
+
+## Custom Prompt
+
+Alternatively you can of course create a custom prompt of your choosing.
+
+```r
+library(shiny)
+library(shinymetrics)
+
+tracker <- Shinymetrics$new()$track_recommended()
+
+ui <- fluidPage(
+  tracker$include()
+)
+
+server <- function(input, output, session) {
+  shinymetrics_server()
+
+  observe({
+    showModal(
+      modalDialog(
+        title = "Tracking",
+        actionButton("accept", "Accept"),
+        actionButton("reject", "Reject")
+      ) 
+    )
+  })
+
+  observeEvent(input$accept, {
+    shinymetrics_enable()
+  })
+
+  observeEvent(input$reject, {
+    shinymetrics_disable()
+  })
+}
+
+shinyApp(ui, server)
+```
+
