@@ -5,6 +5,8 @@
 
 R package to track shiny applications with [shinymetrics](https://shinymetrics.com).
 
+:construction: shinymetrics is currently in alpha.
+
 ## Installation
 
 You can install the development version of shinymetrics from [GitHub](https://github.com/) with:

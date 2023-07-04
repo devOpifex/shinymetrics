@@ -2,6 +2,7 @@ library(shiny)
 library(shinymetrics)
 
 tracker <- Shinymetrics$new(prod = FALSE)$track_recommended()
+print(Sys.getenv("SHINYMETRICS_TOKEN"))
 
 ui <- fluidPage(
   theme = bslib::bs_theme(version = 5L),
