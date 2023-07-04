@@ -1,8 +1,8 @@
 ---
-title: "Collecting Consent"
+title: "Consent"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Collecting Consent}
+  %\VignetteIndexEntry{Consent}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -19,7 +19,7 @@ library(shinymetrics)
 ```
 
 <div class="alert alert-danger" role="alert">
-  These helper prompts set the cookies for tracking but DO NOT track consent,
+  These helper prompts set the cookies for tracking but DO NOT keep track of consent,
   if that is needed you must set it up yourself.
 </div>
 
