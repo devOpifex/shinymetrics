@@ -7,7 +7,8 @@ R package to track shiny applications with [shinymetrics](https://shinymetrics.c
 
 :construction: shinymetrics is currently in closed alpha.
 
-<a class="mb-4 btn btn-info" href="articles/get-started.html">Get Started</a>
+<a class="mb-4 mr-4 btn btn-info" href="articles/get-started.html">Get Started</a>
+<a target="_blank" class="mb-4 btn btn-default" href="https://shinymetrics.com">Main site</a>
 
 ## Installation
 

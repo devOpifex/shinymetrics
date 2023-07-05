@@ -2,3 +2,46 @@ url: https://pkg.shinymetrics.com
 template:
   bootstrap: 5
 
+home:
+links:
+  - text: Website
+    href: https://shinymetrics.com
+
+
+reference:
+  - title: "Tracking"
+    desc: "Core class to setup tracking"
+    contents: 
+      - Shinymetrics
+  - title: "Consent"
+    desc: "Helper prompts to allow users to enable or disable tracking"
+    contents: 
+      - trackingModalBS5
+      - trackingModalBS4
+      - trackingModalBS3
+      - trackingToastBS5
+  - title: "User"
+    desc: "Set or unset the current user"
+    contents: 
+      - shinymetrics_set_user
+      - shinymetrics_unset_user
+  - title: "Toggle"
+    desc: "Programmatically toggle tracking"
+    contents: 
+      - shinymetrics_enable
+      - shinymetrics_disable
+  - title: "Shiny"
+    desc: "Shiny utilities"
+    contents: 
+      - shinymetrics_server
+      - useShinymetrics
+  - title: "Custom event"
+    desc: "Push custom events"
+    contents: 
+      - shinymetrics_custom_event
+
+authors:
+  John Coene:
+    href: https://john-coene.com
+  Opifex:
+    href: https://opifex.org

@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 Create a free account on [shinymetrics](https://shinymetrics.com),
 this will not require you to enter any credit card information.
 
-![](create.png)
+<img src="create.png" class="rounded shadow" />
 
 After creating your account please check your inbox for an email coming
 from `hello@shinymetrics.com` for an activation link.
@@ -32,14 +32,14 @@ register your first application.
 Login and visit "My Apps" (top right) then click the "Register an app" button
 and fill in the form adequately.
 
-![](register.png)
+<img src="register.png" class="rounded shadow" />
 
 # 3. Get your tracking code
 
 Once the app registered it will appear on your main dashboard.
 Click the <i class='fa fa-code'></i> icon to obtain your tracking code.
 
-![](apps.png)
+<img src="apps.png" class="rounded shadow" />
 
 # 4. Track your app
 
@@ -53,6 +53,6 @@ See the
 for more information.
 </div>
 
-![](code.png)
+<img src="code.png" class="rounded shadow" />
 
 
