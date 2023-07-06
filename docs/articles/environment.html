@@ -76,12 +76,14 @@
 
     
     
-<p><a href="https://shinymetrics.com" class="external-link">Shinymetrics</a> allows distinguishing between “prod” and “dev” environments. These events can be toggled on the in your dashboards so you don’t confused real activity on your application by genuine users and events fired by developers.</p>
-<p>Whislt developing set the <code>prod</code> argument of the constructor to <code>FALSE</code></p>
+<p><a href="https://shinymetrics.com" class="external-link">Shinymetrics</a> allows distinguishing between “prod” and “dev” environments. These events can be toggled on your dashboards so you don’t confuse real activity on your application made by genuine users and events fired by programmers as they develop the application.</p>
+<p>Whilst developing set the <code>prod</code> argument of the constructor to <code>FALSE</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tracker</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Shinymetrics.html">Shinymetrics</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>prod <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="fu">track_recommended</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<blockquote>
 <p>Make this is set to <code>TRUE</code> when you deploy.</p>
-<p>If you are using golem use the <code>golem.app.prod</code> option.</p>
+</blockquote>
+<p>If you are building a {golem} application: use the <code>golem.app.prod</code> option.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tracker</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Shinymetrics.html">Shinymetrics</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>prod <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"golem.app.prod"</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="fu">track_recommended</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
   </main>

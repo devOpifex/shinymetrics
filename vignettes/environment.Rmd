@@ -16,18 +16,19 @@ knitr::opts_chunk$set(
 
 [Shinymetrics](https://shinymetrics.com) allows distinguishing between "prod" and
 "dev" environments.
-These events can be toggled on the in your dashboards so you don't confused real
-activity on your application by genuine users and events fired by developers.
+These events can be toggled on your dashboards so you don't confuse real
+activity on your application made by genuine users and events fired by programmers
+as they develop the application.
 
-Whislt developing set the `prod` argument of the constructor to `FALSE`
+Whilst developing set the `prod` argument of the constructor to `FALSE`.
 
 ```r
 tracker <- Shinymetrics$new(prod = FALSE)$track_recommended()
 ```
 
-Make this is set to `TRUE` when you deploy.
+> Make this is set to `TRUE` when you deploy.
 
-If you are using golem use the `golem.app.prod` option.
+If you are building a {golem} application: use the `golem.app.prod` option.
 
 ```r
 tracker <- Shinymetrics$new(prod = getOption("golem.app.prod"))$track_recommended()
