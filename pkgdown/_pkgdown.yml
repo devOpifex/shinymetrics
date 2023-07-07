@@ -3,10 +3,30 @@ template:
   bootstrap: 5
 
 home:
-links:
-  - text: Website
-    href: https://shinymetrics.com
+  links:
+    - text: Website
+      href: https://shinymetrics.com
+    - text: Opifex
+      href: https://opifex.org
 
+navbar:
+ components:
+   articles:
+    text: Documentation
+    menu:
+    - text: Get Started
+      href: articles/get-started.html
+    - text: -------
+    - text: Consent
+      href: articles/consent.html
+    - text: Environment
+      href: articles/environment.html
+    - text: Tracking
+      href: articles/tracking.html
+    - text: Users Management
+      href: articles/users.html
+    - text: Custom Events
+      href: articles/custom.html
 
 reference:
   - title: "Tracking"
