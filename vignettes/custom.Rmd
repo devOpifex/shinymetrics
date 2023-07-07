@@ -19,6 +19,7 @@ However, you may want to track custom events.
 For instance, you may want to track when a user creates an account by firing an 
 event of `type` "account_creation" where the `value` is the username of the 
 account being created.
+You will then able to see those events in your dashboard.
 
 For instance the application below, upon account creation, collects the 
 username and fires the event.

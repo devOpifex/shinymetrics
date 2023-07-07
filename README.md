@@ -21,7 +21,7 @@ remotes::install_github("devOpifex/shinymetrics")
 :warning: The package comes with prompts to help developers collect consent from
 users to enable or disable tracking.
 These prompts toggle tracking and cookies on and off but DO NOT store consent,
-if that is required it must be implemented a different way.
+if that is required you must implemented it yourself.
 
 ## How it works
 

@@ -76,8 +76,8 @@
 
     
     
-<div class="alert alert-danger" role="alert">
-<p>These helper prompts set the cookies for tracking but DO NOT keep track of consent, if you keep track of who gave consent you must set it up yourself.</p>
+<div class="alert alert-warning" role="alert">
+<p>These prompts toggle tracking and cookies on and off but DO NOT store consent, if that is required you must implemented it yourself.</p>
 </div>
 <div class="section level2">
 <h2 id="collect-consent">Collect Consent<a class="anchor" aria-label="anchor" href="#collect-consent"></a>
@@ -102,7 +102,7 @@
 <code><a href="../reference/trackingModal.html">trackingModalBS3()</a></code> - Bootstrap 3 modal</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">shinymetrics</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">tracker</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Shinymetrics.html">Shinymetrics</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="fu">track_recommended</span><span class="op">(</span><span class="op">)</span></span>
@@ -132,7 +132,7 @@
 </h3>
 <p>Alternatively you can of course create a custom prompt of your choosing.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">shinymetrics</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">tracker</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Shinymetrics.html">Shinymetrics</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="fu">track_recommended</span><span class="op">(</span><span class="op">)</span></span>

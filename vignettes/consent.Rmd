@@ -18,9 +18,9 @@ knitr::opts_chunk$set(
 library(shinymetrics)
 ```
 
-<div class="alert alert-danger" role="alert">
-  These helper prompts set the cookies for tracking but DO NOT keep track of consent,
-  if you keep track of who gave consent you must set it up yourself.
+<div class="alert alert-warning" role="alert">
+These prompts toggle tracking and cookies on and off but DO NOT store consent,
+if that is required you must implemented it yourself.
 </div>
 
 # Collect Consent

@@ -23,7 +23,7 @@ stored as `cookie`, this ID always starts in `smu_` and you will be able to see 
 dashboards.
 
 However, you can also set that user yourself, e.g.: if your application requires authentication
-or it runs in an environment that where the user is authenticated.
+or it runs in an environment where the user is already authenticated (e.g.: Posit Connect).
 
 ``` r
 library(shiny)
@@ -48,10 +48,10 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-Note that like the default username created by shinymetrics this is also stored as cookie,
+Note that, like the default username created by shinymetrics, this is also stored as cookie
 so there is no need to set the user at every session.
 
-If you are using posit connect you should be able to access the authenticated user from the 
+If you are using Posit Connect you should be able to access the authenticated user from the 
 `session` object with `session$user`.
 
 # Unset user

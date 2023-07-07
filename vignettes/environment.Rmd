@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 [Shinymetrics](https://shinymetrics.com) allows distinguishing between "prod" and
 "dev" environments.
 These events can be toggled on your dashboards so you don't confuse real
-activity on your application made by genuine users and events fired by programmers
+activity made by genuine users and events fired by programmers
 as they develop the application.
 
 Whilst developing set the `prod` argument of the constructor to `FALSE`.
