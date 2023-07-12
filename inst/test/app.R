@@ -1,7 +1,7 @@
 library(shiny)
 library(shinymetrics)
 
-tracker <- Shinymetrics$new(prod = FALSE)$track_recommended()
+tracker <- Shinymetrics$new(prod = TRUE)$track_recommended()
 print(Sys.getenv("SHINYMETRICS_TOKEN"))
 
 ui <- fluidPage(

@@ -58,6 +58,7 @@ Shinymetrics <- R6::R6Class(
       self$track_file_download()
       self$track_busy_idle()
       self$track_page_view()
+      invisible(self)
     },
     #' @details Track "connected" event fired when
     #' Shiny's server connects.
@@ -72,6 +73,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_connected = function(ignore = c(), only = c()) {
       private$.track("connected", ignore, only)
+      invisible(self)
     },
     #' @details Track "disconnected" event fired when
     #' Shiny's server disconnects.
@@ -86,6 +88,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_disconnected = function(ignore = c(), only = c()) {
       private$.track("disconnected", ignore, only)
+      invisible(self)
     },
     #' @details Track "sessioninitialized" event fired when
     #' Shiny's session is initialized.
@@ -100,6 +103,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_session_initialialized = function(ignore = c(), only = c()) {
       private$.track("sessioninitialized", ignore, only)
+      invisible(self)
     },
     #' @details Track "busy" and "idle" event fired when the server is performing
     #' calculations and stops.
@@ -115,6 +119,7 @@ Shinymetrics <- R6::R6Class(
     track_busy_idle = function(ignore = c(), only = c()) {
       private$.track("busy", ignore, only)
       private$.track("idle", ignore, only)
+      invisible(self)
     },
     #' @details Track "inputchanged" event fired when an
     #' input value changes.
@@ -129,6 +134,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_input = function(ignore = c(), only = c()) {
       private$.track("inputchanged", ignore, only)
+      invisible(self)
     },
     #' @details Track "message" event triggered when any messages
     #' are received from the server.
@@ -143,6 +149,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_message = function(ignore = c(), only = c()) {
       private$.track("message", ignore, only)
+      invisible(self)
     },
     #' @details Track "conditional" triggered when `shiny::conditionalPanel`
     #' are updated.
@@ -157,6 +164,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_conditional = function(ignore = c(), only = c()) {
       private$.track("conditional", ignore, only)
+      invisible(self)
     },
     #' @details Track "bound" triggered when an input or output
     #' is bound with the shiny server.
@@ -171,6 +179,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_bound = function(ignore = c(), only = c()) {
       private$.track("bound", ignore, only)
+      invisible(self)
     },
     #' @details Track "unbound" triggered when an input or output
     #' is no longer bound with the shiny server.
@@ -185,6 +194,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_unbound = function(ignore = c(), only = c()) {
       private$.track("unbound", ignore, only)
+      invisible(self)
     },
     #' @details Track the "value" event which is triggered when 
     #' an output receives a value from the server
@@ -200,6 +210,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_output = function(ignore = c(), only = c()) {
       private$.track("value", ignore, only)
+      invisible(self)
     },
     #' @details Track the "error" event, triggered when an 
     #' error is propagated to an output
@@ -214,6 +225,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_error = function(ignore = c(), only = c()) {
       private$.track("error", ignore, only)
+      invisible(self)
     },
     #' @details Track "outputinvalidated" event triggered,
     #' when an output’s value is invalidated on the server.
@@ -228,6 +240,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_output_invalidated = function(ignore = c(), only = c()) {
       private$.track("outputinvalidated", ignore, only)
+      invisible(self)
     },
     #' @details Track "recalculating" triggered before an output 
     #' value is recalculated.
@@ -242,6 +255,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_recalculating = function(ignore = c(), only = c()) {
       private$.track("recalculating", ignore, only)
+      invisible(self)
     },
     #' @details Track "recalculating" triggered after an output 
     #' value has been recalculated.
@@ -256,6 +270,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_recalculated = function(ignore = c(), only = c()) {
       private$.track("recalculated", ignore, only)
+      invisible(self)
     },
     #' @details Track "visualchange" triggered when an output is 
     #' resized, hidden, or shown.
@@ -270,6 +285,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_visual_change = function(ignore = c(), only = c()) {
       private$.track("visualchange", ignore, only)
+      invisible(self)
     },
     #' @details Track "updateinput" event is triggered when an input
     #' is updated from the server, e.g., when you call [shiny::updateTextInput()]
@@ -285,6 +301,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_update_input = function(ignore = c(), only = c()) {
       private$.track("updateinput", ignore, only)
+      invisible(self)
     },
     #' @details Track when a page is loaded.
     #' 
@@ -298,6 +315,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_page_view = function(ignore = c(), only = c()) {
       private$.track("pageview", ignore, only)
+      invisible(self)
     },
     #' @details Track "filedownload" event triggered when a file is downloaded
     #' via the [shiny::downloadButton()].
@@ -312,6 +330,7 @@ Shinymetrics <- R6::R6Class(
     #' Cannot be used with `ignore`.
     track_file_download = function(ignore = c(), only = c()) {
       private$.track("filedownload", ignore, only)
+      invisible(self)
     },
     #' @details Track custom events.
     #' 
@@ -332,6 +351,7 @@ Shinymetrics <- R6::R6Class(
         value = value,
         session = session
       )
+      invisible(self)
     },
     #' @details Include the tracking code in your UI.
     include = function() {
