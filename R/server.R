@@ -20,7 +20,11 @@ shinymetrics_server <- function(
   if(is_initialised())
     return()
 
-  assert_that(has_var(token))
+  has_token <- validate_that(has_var(token))
+  if(!is.logical(has_token)) {
+    warning(has_token)
+    return()
+  }
 
   on.exit({
     .globals$initialised <- TRUE
