@@ -96,10 +96,12 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$accept, {
+    removeModal()
     shinymetrics_enable()
   })
 
   observeEvent(input$reject, {
+    removeModal()
     shinymetrics_disable()
   })
 }
