@@ -3,7 +3,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-# shinymetrics
+[](man/figures/logo.png)
 
 R package to track shiny applications with Shinymetrics.
 
@@ -49,6 +49,8 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
+
+[](man/figures/default.png)
 
 ## Prompts
 
