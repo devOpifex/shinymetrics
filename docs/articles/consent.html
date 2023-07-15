@@ -131,6 +131,7 @@
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<p><img src="basic-consent.png" class="rounded shadow"></p>
 </div>
 <div class="section level3">
 <h3 id="custom-prompt">Custom Prompt<a class="anchor" aria-label="anchor" href="#custom-prompt"></a>
@@ -152,14 +153,20 @@
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="co"># shinymetrics tracking is already enabled</span></span>
 <span>    <span class="co"># no need to show the modal</span></span>
+<span>    <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">shinymetricsEnabled</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
 <span>    <span class="kw">if</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">shinymetricsEnabled</span><span class="op">)</span></span>
 <span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showModal.html" class="external-link">showModal</a></span><span class="op">(</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/modalDialog.html" class="external-link">modalDialog</a></span><span class="op">(</span></span>
 <span>        title <span class="op">=</span> <span class="st">"Tracking"</span>,</span>
+<span>        <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Enable tracking?"</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"accept"</span>, <span class="st">"Accept"</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"reject"</span>, <span class="st">"Reject"</span><span class="op">)</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"reject"</span>, <span class="st">"Reject"</span><span class="op">)</span>,</span>
+<span>        easyClose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>        footer <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>      <span class="op">)</span> </span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
@@ -176,6 +183,19 @@
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<p><img src="custom.png" class="rounded shadow"></p>
+</div>
+<div class="section level3">
+<h3 id="cookies-and-testing">Cookies and testing<a class="anchor" aria-label="anchor" href="#cookies-and-testing"></a>
+</h3>
+<p>When shinymetrics is enabled it stores some information as cookie so the user does not have to enable tracking at every visit.</p>
+<p>This means that once you have enabled tracking you have cookie stored in your browser and the consent prompt will no longer show. This may not be convenient while testing or building a cutom prompt. There are two ways to tackle this issue:</p>
+<ol style="list-style-type: decimal">
+<li>Visit your application in “incognito” mode so it does not store cookies. See instructions for <a href="https://support.google.com/chrome/answer/95464?hl=en&amp;co=GENIE.Platform%3DDesktop" class="external-link">Chrome</a>, <a href="https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history" class="external-link">Firefox</a>, <a href="https://support.apple.com/en-us/HT203036" class="external-link">Safari</a>, and <a href="https://support.microsoft.com/en-us/microsoft-edge/browse-inprivate-in-microsoft-edge-e6f47704-340c-7d4f-b00d-d0cf35aa1fcc" class="external-link">Edge</a>
+</li>
+<li>From your browser clear the cookies for your app. Visit your application in your browser then, generally, click on the icons left of the left of the URL and clear the cookies.</li>
+</ol>
+<p><img src="clear.jpg" class="rounded shadow"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

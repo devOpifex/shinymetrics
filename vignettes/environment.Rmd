@@ -20,6 +20,8 @@ These events can be toggled on your dashboards so you don't confuse real
 activity made by genuine users and events fired by programmers
 as they develop the application.
 
+<img src="env.png" class="rounded shadow" />
+
 Whilst developing set the `prod` argument of the constructor to `FALSE`.
 
 ```r

@@ -73,6 +73,8 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
+<img src="basic-consent.png" class="rounded shadow" />
+
 ## Custom Prompt
 
 Alternatively you can of course create a custom prompt of your choosing.
@@ -93,14 +95,20 @@ server <- function(input, output, session) {
   observe({
     # shinymetrics tracking is already enabled
     # no need to show the modal
+    if(is.null(input$shinymetricsEnabled))
+      return()
+
     if(input$shinymetricsEnabled)
       return()
 
     showModal(
       modalDialog(
         title = "Tracking",
+        p("Enable tracking?"),
         actionButton("accept", "Accept"),
-        actionButton("reject", "Reject")
+        actionButton("reject", "Reject"),
+        easyClose = FALSE,
+        footer = NULL
       ) 
     )
   })
@@ -118,4 +126,27 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
+
+<img src="custom.png" class="rounded shadow" />
+
+## Cookies and testing
+
+When shinymetrics is enabled it stores some information as cookie
+so the user does not have to enable tracking at every visit.
+
+This means that once you have enabled tracking you have cookie stored
+in your browser and the consent prompt will no longer show.
+This may not be convenient while testing or building a cutom prompt. 
+There are two ways to tackle this issue:
+
+1. Visit your application in "incognito" mode so it does not store cookies.
+  See instructions for [Chrome](https://support.google.com/chrome/answer/95464?hl=en&co=GENIE.Platform%3DDesktop),
+  [Firefox](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history),
+  [Safari](https://support.apple.com/en-us/HT203036), and
+  [Edge](https://support.microsoft.com/en-us/microsoft-edge/browse-inprivate-in-microsoft-edge-e6f47704-340c-7d4f-b00d-d0cf35aa1fcc)
+2. From your browser clear the cookies for your app.
+  Visit your application in your browser then, generally, click on the icons left of the left
+  of the URL and clear the cookies.
+
+<img src="clear.jpg" class="rounded shadow" />
 

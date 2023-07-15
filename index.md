@@ -19,13 +19,6 @@ You can install the development version of shinymetrics from [GitHub](https://gi
 remotes::install_github("devOpifex/shinymetrics")
 ```
 
-## Prompts
-
-:warning: The package comes with prompts to help developers collect consent from
-users to enable or disable tracking.
-These prompts toggle tracking and cookies on and off but DO NOT store consent,
-if that is required you must implemented it yourself.
-
 ## How it works
 
 Place your token for your registered application in your `.Renviron`
@@ -43,7 +36,8 @@ library(shinymetrics)
 tracker <- Shinymetrics$new()$track_recommended()
 
 ui <- fluidPage(
-  tracker$include() # include in the UI
+  tracker$include(), # include in the UI
+  trackingModalBS3() # consent prompt
 )
 
 server <- function(input, output, session) {
@@ -53,6 +47,12 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-You then need to request consent to initialise the tracking.
-See the vignettes for appropriate methods.
+<img src="man/figures/default.png" class="rounded shadow" />
+
+## Prompts
+
+The package comes with prompts to help developers collect consent from
+users to enable or disable tracking.
+These prompts toggle tracking and cookies on and off but DO NOT store consent,
+if that is required you must implemented it yourself.
 

@@ -1,11 +1,17 @@
+<div align="center">
+
 <!-- badges: start -->
 <!-- badges: end -->
 
 # shinymetrics
 
-R package to track shiny applications with [shinymetrics](https://shinymetrics.com).
+R package to track shiny applications with Shinymetrics.
+
+[site](https://shinymetrics.com) | [docs](https.//pkg.shinymetrics.com)
 
 :construction: shinymetrics is currently in closed alpha.
+
+</div>
 
 ## Installation
 
@@ -15,13 +21,6 @@ You can install the development version of shinymetrics from [GitHub](https://gi
 # install.packages("remotes")
 remotes::install_github("devOpifex/shinymetrics")
 ```
-
-## Prompts
-
-:warning: The package comes with prompts to help developers collect consent from
-users to enable or disable tracking.
-These prompts toggle tracking and cookies on and off but DO NOT store consent,
-if that is required you must implemented it yourself.
 
 ## How it works
 
@@ -40,7 +39,8 @@ library(shinymetrics)
 tracker <- Shinymetrics$new()$track_recommended()
 
 ui <- fluidPage(
-  tracker$include() # include in the UI
+  tracker$include(), # include in the UI
+  trackingModalBS3() # consent prompt
 )
 
 server <- function(input, output, session) {
@@ -50,6 +50,10 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-You then need to request consent to initialise the tracking.
-See the vignettes for appropriate methods.
+## Prompts
+
+The package comes with prompts to help developers collect consent from
+users to enable or disable tracking.
+These prompts toggle tracking and cookies on and off but DO NOT store consent,
+if that is required you must implemented it yourself.
 

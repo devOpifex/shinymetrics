@@ -83,11 +83,6 @@
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"devOpifex/shinymetrics"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="prompts">Prompts<a class="anchor" aria-label="anchor" href="#prompts"></a>
-</h2>
-<p><span class="emoji" data-emoji="warning">⚠️</span> The package comes with prompts to help developers collect consent from users to enable or disable tracking. These prompts toggle tracking and cookies on and off but DO NOT store consent, if that is required you must implemented it yourself.</p>
-</div>
-<div class="section level2">
 <h2 id="how-it-works">How it works<a class="anchor" aria-label="anchor" href="#how-it-works"></a>
 </h2>
 <p>Place your token for your registered application in your <code>.Renviron</code> (or elsewhere as environment variable) as <code>SHINYMETRICS_TOKEN</code>.</p>
@@ -104,7 +99,8 @@
 <span><span class="va">tracker</span> <span class="op">&lt;-</span> <span class="va"><a href="reference/Shinymetrics.html">Shinymetrics</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="fu">track_recommended</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span></span>
-<span>  <span class="va">tracker</span><span class="op">$</span><span class="fu">include</span><span class="op">(</span><span class="op">)</span> <span class="co"># include in the UI</span></span>
+<span>  <span class="va">tracker</span><span class="op">$</span><span class="fu">include</span><span class="op">(</span><span class="op">)</span>, <span class="co"># include in the UI</span></span>
+<span>  <span class="fu"><a href="reference/trackingModal.html">trackingModalBS3</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># consent prompt</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
@@ -112,7 +108,12 @@
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
-<p>You then need to request consent to initialise the tracking. See the vignettes for appropriate methods.</p>
+<p><img src="reference/figures/default.png" class="rounded shadow"></p>
+</div>
+<div class="section level2">
+<h2 id="prompts">Prompts<a class="anchor" aria-label="anchor" href="#prompts"></a>
+</h2>
+<p>The package comes with prompts to help developers collect consent from users to enable or disable tracking. These prompts toggle tracking and cookies on and off but DO NOT store consent, if that is required you must implemented it yourself.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
