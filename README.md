@@ -3,7 +3,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-[](man/figures/logo.png)
+<img src="man/figures/logo.png" height = "200px" />
 
 R package to track shiny applications with Shinymetrics.
 

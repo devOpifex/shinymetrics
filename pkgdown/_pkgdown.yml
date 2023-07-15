@@ -4,6 +4,8 @@ template:
 
 home:
   links:
+    - text: Source code
+      href: https://github.com/devOpifex/shinymetrics
     - text: Website
       href: https://shinymetrics.com
     - text: Opifex
