@@ -22,10 +22,6 @@ not_missing <- function(x) {
   !missing(x)
 }
 
-is_initialised <- function() {
-  .globals$initialised
-}
-
 is_standard_event <- function(x) {
   x %in% STANDARD_EVENTS
 }
@@ -52,10 +48,6 @@ assertthat::on_failure(is_valid_expire) <- function(call, env) {
 
 assertthat::on_failure(is_standard_event) <- function(call, env) {
   sprintf("`%s` is a reserved type", deparse(call$x))
-}
-
-assertthat::on_failure(is_initialised) <- function(call, env) {
-  "not initialised: see `shinymetrics_server()`"
 }
 
 assertthat::on_failure(not_missing) <- function(call, env) {

@@ -2,7 +2,6 @@ library(shiny)
 library(shinymetrics)
 
 tracker <- Shinymetrics$new(prod = TRUE)$track_recommended()
-print(Sys.getenv("SHINYMETRICS_TOKEN"))
 
 ui <- fluidPage(
   theme = bslib::bs_theme(version = 5L),
@@ -163,7 +162,6 @@ server <- function(input, output, session) {
   })
 
   output$error <- renderPlot({
-    print(input$button)
     if(input$button %% 3)
       plot(error)
     else
@@ -179,7 +177,7 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$shinymetricsEnabled, {
-    print(input$shinymetricsEnabled)
+    cat("Shinymetrics is enabled: ", input$shinymetricsEnabled, "\n")
   })
 
   output$downloadData <- downloadHandler(

@@ -4,22 +4,16 @@
 \alias{shinymetrics_server}
 \title{Initialise server tracking}
 \usage{
-shinymetrics_server(
-  token = Sys.getenv("SHINYMETRICS_TOKEN"),
-  prod = getOption("SHINYMETRICS_PROD", FALSE),
-  session = shiny::getDefaultReactiveDomain()
-)
+shinymetrics_server(session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{token}{Your application token.}
-
-\item{prod}{Whether the events are tracked for production.
-These allow not polluting your dashboard with test data.
-It is \code{FALSE} by default.}
-
 \item{session}{A valid Shiny session.}
 }
 \description{
 This functions is only required if you want to
 make use of \code{\link[=shinymetrics_custom_event]{shinymetrics_custom_event()}}.
+}
+\note{
+You can also observe whether Shinymetrics tracking
+is enabled by listening to the \code{input$shinymetricsEnabled} input.
 }

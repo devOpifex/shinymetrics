@@ -3,37 +3,17 @@
 #' This functions is only required if you want to
 #' make use of [shinymetrics_custom_event()].
 #' 
-#' @param token Your application token.
-#' @param prod Whether the events are tracked for production.
-#' These allow not polluting your dashboard with test data.
-#' It is `FALSE` by default.
 #' @param session A valid Shiny session.
+#' 
+#' @note You can also observe whether Shinymetrics tracking
+#'  is enabled by listening to the `input$shinymetricsEnabled` input.
 #' 
 #' @importFrom shiny observeEvent
 #' 
 #' @export
 shinymetrics_server <- function(
-  token = Sys.getenv("SHINYMETRICS_TOKEN"),
-  prod = getOption("SHINYMETRICS_PROD", FALSE),
   session = shiny::getDefaultReactiveDomain()
 ){
-  if(is_initialised())
-    return()
-
-  has_token <- validate_that(has_var(token))
-  if(!is.logical(has_token)) {
-    warning(has_token)
-    return()
-  }
-
-  on.exit({
-    .globals$initialised <- TRUE
-  })
-
-  observeEvent(session$input$shinymetricsInit, {
-    .globals$params <- session$input$shinymetricsInit
-  }, once = TRUE)
-
   observeEvent(session$input$shinymetricsDebug, {
     obj <- session$input$shinymetricsDebug
 
@@ -44,16 +24,6 @@ shinymetrics_server <- function(
 
     print_info(obj$message)
   })
-
-  params <- list(
-    token = token,
-    prod = prod
-  )
-
-  session$sendCustomMessage(
-    "shinymetrics-init",
-    params
-  )
 }
 
 print_info <- function(message) {
@@ -116,7 +86,6 @@ shinymetrics_custom_event <- function(
 ) {
   assert_that(not_missing(type))
   assert_that(!is_standard_event(type))
-  shinymetrics_server(session = session)
 
   if(is.null(id))
     id <- ""

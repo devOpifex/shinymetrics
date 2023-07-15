@@ -91,7 +91,8 @@
 <div class="section level3">
 <h3 id="pre-built-prompts">Pre-built Prompts<a class="anchor" aria-label="anchor" href="#pre-built-prompts"></a>
 </h3>
-<p>Pre-built prompts to place in your UI, use depends on style preference and Bootstrap version.</p>
+<p>:+1: It is recommended to use the pre-built prompts.</p>
+<p>Pre-built prompts to place in your UI, use depends on style preference and Bootstrap version, all their arguments are optional.</p>
 <ul>
 <li>
 <code><a href="../reference/trackingToastBS5.html">trackingToastBS5()</a></code> - Bootstrap 5 notification</li>
@@ -114,7 +115,10 @@
 <span>  <span class="fu"><a href="../reference/trackingToastBS5.html">trackingToastBS5</a></span><span class="op">(</span></span>
 <span>    full_width <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    background <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span>    position <span class="op">=</span> <span class="st">"bottom"</span></span>
+<span>    position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>    prompt <span class="op">=</span> <span class="st">"Please enable cookie tracking :)"</span>,</span>
+<span>    accept <span class="op">=</span> <span class="st">"Yes, sure"</span>,</span>
+<span>    reject <span class="op">=</span> <span class="st">"No!"</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span></span>
 <span>    style <span class="op">=</span> <span class="st">"min-height:100vh;"</span>,</span>
@@ -146,6 +150,11 @@
 <span>  <span class="fu"><a href="../reference/shinymetrics_server.html">shinymetrics_server</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="co"># shinymetrics tracking is already enabled</span></span>
+<span>    <span class="co"># no need to show the modal</span></span>
+<span>    <span class="kw">if</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">shinymetricsEnabled</span><span class="op">)</span></span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/showModal.html" class="external-link">showModal</a></span><span class="op">(</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/modalDialog.html" class="external-link">modalDialog</a></span><span class="op">(</span></span>
 <span>        title <span class="op">=</span> <span class="st">"Tracking"</span>,</span>

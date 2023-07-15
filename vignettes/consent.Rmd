@@ -32,8 +32,11 @@ There are two ways to collect user consent to initialise tracking:
 
 ## Pre-built Prompts
 
+:+1: It is recommended to use the pre-built prompts.
+
 Pre-built prompts to place in your UI, use depends on
-style preference and Bootstrap version.
+style preference and Bootstrap version, all their arguments
+are optional.
 
 - `trackingToastBS5()` - Bootstrap 5 notification
 - `trackingModalBS5()` - Bootstrap 5 modal
@@ -52,7 +55,10 @@ ui <- fluidPage(
   trackingToastBS5(
     full_width = TRUE,
     background = "white",
-    position = "bottom"
+    position = "bottom",
+    prompt = "Please enable cookie tracking :)",
+    accept = "Yes, sure",
+    reject = "No!"
   ),
   div(
     style = "min-height:100vh;",
@@ -66,7 +72,6 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
-
 
 ## Custom Prompt
 
@@ -86,6 +91,11 @@ server <- function(input, output, session) {
   shinymetrics_server()
 
   observe({
+    # shinymetrics tracking is already enabled
+    # no need to show the modal
+    if(input$shinymetricsEnabled)
+      return()
+
     showModal(
       modalDialog(
         title = "Tracking",

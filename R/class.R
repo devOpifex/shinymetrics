@@ -30,13 +30,6 @@ Shinymetrics <- R6::R6Class(
     ) {
       assert_that(has_var(token))
 
-      cat(
-        "shinymetrics tracking in",
-        ifelse(prod, "prod", "test"),
-        "\n",
-        file = stdout()
-      )
-
       private$.token <- token
       private$.prod <- prod
       private$.ignoreGlobal <- ignore_global
