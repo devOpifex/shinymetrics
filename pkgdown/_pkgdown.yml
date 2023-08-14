@@ -29,6 +29,8 @@ navbar:
       href: articles/users.html
     - text: Custom Events
       href: articles/custom.html
+    - text: Integrations
+      href: articles/integrations.html
 
 reference:
   - title: "Tracking"
