@@ -180,6 +180,10 @@ server <- function(input, output, session) {
     cat("Shinymetrics is enabled: ", input$shinymetricsEnabled, "\n")
   })
 
+  observeEvent(input$shinymetricsDisabled, {
+    cat("Shinymetrics is enabled: ", input$shinymetricsDisabled, "\n")
+  })
+
   output$downloadData <- downloadHandler(
     filename = function() {
       "cars.csv"
