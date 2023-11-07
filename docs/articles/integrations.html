@@ -74,7 +74,9 @@
   </div>
 </nav><div class="container template-article">
 
-<div class="row">
+
+
+<script src="integrations_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Integrations</h1>
             
@@ -245,9 +247,9 @@
 <span>  <span class="fu">new</span><span class="op">(</span><span class="op">)</span><span class="op">$</span></span>
 <span>  <span class="fu">track_recommended</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/bs4Dash/man/dashboardPage.html" class="external-link">dashboardPage</a></span><span class="op">(</span></span>
-<span>  header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/bs4Dash/man/dashboardHeader.html" class="external-link">dashboardHeader</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/bs4Dash/man/dashboardBrand.html" class="external-link">dashboardBrand</a></span><span class="op">(</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">dashboardPage</span><span class="op">(</span></span>
+<span>  header <span class="op">=</span> <span class="fu">dashboardHeader</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="fu">dashboardBrand</span><span class="op">(</span></span>
 <span>      title <span class="op">=</span> <span class="st">"My dashboard"</span>,</span>
 <span>      color <span class="op">=</span> <span class="st">"primary"</span>,</span>
 <span>      href <span class="op">=</span> <span class="st">"https://adminlte.io/themes/v3"</span>,</span>
@@ -256,13 +258,13 @@
 <span>    <span class="va">tracker</span><span class="op">$</span><span class="fu">include</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="../reference/trackingModal.html">trackingModalBS4</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  sidebar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/bs4Dash/man/dashboardSidebar.html" class="external-link">dashboardSidebar</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/bs4Dash/man/dashboardBody.html" class="external-link">dashboardBody</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/bs4Dash/man/getAdminLTEColors.html" class="external-link">getAdminLTEColors</a></span><span class="op">(</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">color</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/bs4Dash/man/box.html" class="external-link">box</a></span><span class="op">(</span>status <span class="op">=</span> <span class="va">color</span><span class="op">)</span></span>
+<span>  sidebar <span class="op">=</span> <span class="fu">dashboardSidebar</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  body <span class="op">=</span> <span class="fu">dashboardBody</span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu">getAdminLTEColors</span><span class="op">(</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">color</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/graphics/box.html" class="external-link">box</a></span><span class="op">(</span>status <span class="op">=</span> <span class="va">color</span><span class="op">)</span></span>
 <span>    <span class="op">}</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  controlbar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/bs4Dash/man/dashboardControlbar.html" class="external-link">dashboardControlbar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  controlbar <span class="op">=</span> <span class="fu">dashboardControlbar</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  title <span class="op">=</span> <span class="st">"DashboardPage"</span></span>
 <span><span class="op">)</span></span>
 <span></span>

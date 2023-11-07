@@ -9,8 +9,6 @@ R package to track shiny applications with Shinymetrics.
 
 [site](https://shinymetrics.com) | [docs](https.//pkg.shinymetrics.com)
 
-:construction: shinymetrics is currently in closed alpha.
-
 </div>
 
 ## Installation
