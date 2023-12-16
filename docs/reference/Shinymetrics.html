@@ -116,7 +116,9 @@ Shinymetrics"><meta property="og:image" content="https://pkg.shinymetrics.com/lo
 
 
 <dt><code>prod</code></dt>
-<dd><p>Whether the events are tracked for production.</p></dd>
+<dd><p>Whether the events are tracked for production.
+These allow not polluting your dashboard with test data.
+It is <code>FALSE</code> by default.</p></dd>
 
 
 <dt><code>ignore_global</code></dt>
@@ -124,9 +126,12 @@ Shinymetrics"><meta property="og:image" content="https://pkg.shinymetrics.com/lo
 these are events that target the entire HTML document,
 they tend to add noise.
 They mainly are events sent by HTMLwidgetsand the likes.
-It is advised to ignore them.</p>
-<p>These allow not polluting your dashboard with test data.
-It is <code>FALSE</code> by default.</p></dd>
+It is advised to ignore them.</p></dd>
+
+
+<dt><code>ignore_consent</code></dt>
+<dd><p>Whether to ignore the consent and force tracking.
+<strong>make sure you do not violate and data privacy laws</strong> if you toggle this on.</p></dd>
 
 
 </dl><p></p></div>
