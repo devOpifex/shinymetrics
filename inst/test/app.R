@@ -1,7 +1,7 @@
 library(shiny)
 library(shinymetrics)
 
-tracker <- Shinymetrics$new(prod = TRUE)$track_recommended()
+tracker <- Shinymetrics$new(ignore_consent = TRUE, prod = TRUE)$track_recommended()
 
 ui <- fluidPage(
   theme = bslib::bs_theme(version = 5L),

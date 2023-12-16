@@ -15,21 +15,24 @@ Shinymetrics <- R6::R6Class(
     #' 
     #' @param token Your application token.
     #' @param prod Whether the events are tracked for production.
+    #' These allow not polluting your dashboard with test data.
+    #' It is `FALSE` by default.
     #' @param ignore_global Whether to ignore "global" events,
     #' these are events that target the entire HTML document,
     #' they tend to add noise.
     #' They mainly are events sent by HTMLwidgetsand the likes.
     #' It is advised to ignore them.
-    #' 
-    #' These allow not polluting your dashboard with test data.
-    #' It is `FALSE` by default.
+    #' @param ignore_consent Whether to ignore the consent and force tracking.
+    #' __make sure you do not violate and data privacy laws__ if you toggle this on.
     initialize = function(
       token = Sys.getenv("SHINYMETRICS_TOKEN"),
       prod = getOption("SHINYMETRICS_PROD", FALSE),
-      ignore_global = TRUE
+      ignore_global = TRUE,
+      ignore_consent = FALSE
     ) {
       assert_that(has_var(token))
 
+      private$.force <- ignore_consent
       private$.token <- token
       private$.prod <- prod
       private$.ignoreGlobal <- ignore_global
@@ -351,6 +354,7 @@ Shinymetrics <- R6::R6Class(
       assert_that(has_tracking(private$.track))
 
       settings <- list(
+        force = private$.force,
         token = private$.token,
         prod = private$.prod,
         track = private$.events,
@@ -404,6 +408,7 @@ Shinymetrics <- R6::R6Class(
 
       invisible(self)
     },
+    .force = FALSE,
     .token = NULL,
     .prod = FALSE,
     .ignoreGlobal = TRUE,

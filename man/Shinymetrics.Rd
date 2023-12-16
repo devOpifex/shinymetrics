@@ -50,7 +50,8 @@ Shinymetrics
 \if{html}{\out{<div class="r">}}\preformatted{Shinymetrics$new(
   token = Sys.getenv("SHINYMETRICS_TOKEN"),
   prod = getOption("SHINYMETRICS_PROD", FALSE),
-  ignore_global = TRUE
+  ignore_global = TRUE,
+  ignore_consent = FALSE
 )}\if{html}{\out{</div>}}
 }
 
@@ -59,16 +60,18 @@ Shinymetrics
 \describe{
 \item{\code{token}}{Your application token.}
 
-\item{\code{prod}}{Whether the events are tracked for production.}
+\item{\code{prod}}{Whether the events are tracked for production.
+These allow not polluting your dashboard with test data.
+It is \code{FALSE} by default.}
 
 \item{\code{ignore_global}}{Whether to ignore "global" events,
 these are events that target the entire HTML document,
 they tend to add noise.
 They mainly are events sent by HTMLwidgetsand the likes.
-It is advised to ignore them.
+It is advised to ignore them.}
 
-These allow not polluting your dashboard with test data.
-It is \code{FALSE} by default.}
+\item{\code{ignore_consent}}{Whether to ignore the consent and force tracking.
+\strong{make sure you do not violate and data privacy laws} if you toggle this on.}
 }
 \if{html}{\out{</div>}}
 }
