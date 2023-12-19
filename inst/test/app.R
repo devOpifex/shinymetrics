@@ -6,14 +6,6 @@ tracker <- Shinymetrics$new(ignore_consent = TRUE, prod = TRUE)$track_recommende
 ui <- fluidPage(
   theme = bslib::bs_theme(version = 5L),
   tracker$include(),
-  trackingToastBS5(
-    full_width = TRUE,
-    background = "white",
-    position = "bottom",
-    enable_opts = list(
-      expires = as.Date("2100-10-01")
-    )
-  ),
   actionButton(
     "longComputation",
     "Long computation"
